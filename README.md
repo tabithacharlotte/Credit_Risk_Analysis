@@ -67,7 +67,7 @@ Balanced accuracy score and the precision and recall scores of all six machine l
     
     ![accuracy](Static/Images/CombinationAccuracy.PNG)
 
-- Balanced Random Forest Classifier
+- **Balanced Random Forest Classifier**
   
   - high_risk precision score: 0.03
   - low_risk precision score: 1.00
@@ -79,7 +79,7 @@ Balanced accuracy score and the precision and recall scores of all six machine l
     
     ![accuracy](Static/Images/ForestAccuracy.PNG)
 
-- Easy Ensemble AdaBoost Classifier
+- **Easy Ensemble AdaBoost Classifier**
 
   - high_risk precision score: 0.09
   - low_risk precision score: 1.00
@@ -94,9 +94,29 @@ Balanced accuracy score and the precision and recall scores of all six machine l
 
 ## Summary
 
-There is a summary of the results (2 pt)
-There is a recommendation on which model to use, or there is no recommendation with a justification (3 pt)
+Results show that the accuracy score for the majority of the models (SMOTE, Naive Random, Cluster, Combination) hovered around 0.65 or fell below that number. 
+The Balanced Random Forest Classifier model's accuracy received a score of around 0.79 and the Easy Ensemble AdaBoost Classifier had an accuracy score of 0.93.
 
- Results show that the accuracy score for the majority of the models (SMOTE, Naive Random, Cluster, Combination) hovered around 0.65 or fell below that number. The Balanced Random Forest Classifier model's accuracy received a score of around 0.79 and the Easy Ensemble AdaBoost Classifer had an accuracy score of 0.93.
+Though an accuracy score gives us an idea of how accurate a model is, with a higher accuracy score indicating a greater level of accuracy, it does not give the full picture, especially when using an imbalanced data set.
 
- The precision scores for the models 
+To get a deeper understanding of the effectiveness of our model, we need to look at the precision scores and the recall scores.
+
+Precision is a measure of the reliability of a positive classification.
+
+The precision scores for the SMOTE, Naive Random, Cluster and Combination models are the same with the high-risk precision score at 0.01 and low-risk score at 1.00. 
+The Balanced Random Forest Classifier model's high-risk precision score fell at 0.03 and 1.00 for the low-risk precision score, whereas the Easy Ensemble AdaBoost Classifier had a high-risk precision score of 0.09 and a low-risk precision score of 1.00.
+
+A low precision score is indicative of a large number of false positives. 
+A high precision score such as 1.0 means that every mention that was labeled as belonging to that category does indeed belong to that classification; but a number of other true positives may not be predicted. 
+
+The low precision scores we see in our results shows us where the machine-learning annotator created incorrect annotations. 
+
+The precision score says nothing about how many other mentions that were labeled as a specific type by the human annotator were missed by the machine-learning annotator; the recall score reflects that information. 
+
+The recall scores for the SMOTE, Naive Random, Cluster and Combination models are once again similar with the recall scores around 0.65. The Cluster model had a high-risk recall around 0.63 and a low-risk recall at 0.42. The recall scores were much higher for the Balanced Random Forest Classifier model (high-risk at 0.70 and low-risk at 0.87) and the Easy Ensemble AdaBoost Classifier (high-risk at 0.92 and low risk at 0.94).
+
+Though the Random, Cluster, Combination and SMOTE models give some indications that they are useful, I would not recommend using these models because their accuracy score is fairly low along with recall score and the precision scores are both high and low.
+
+More of an argument could be made to use the Balanced Random Forest Classifier and Ensemble AdaBoost Classifier, which have much higher recall and accuracy scores, but the split in precision scores indicates that these models are not perfect.
+
+To make a more accurate model we may need more data, more cleaning, another model parameter, or try a different model. 
